@@ -19,3 +19,5 @@ Runtime Ensembling With Model B (Ours)
 
 Model B:
 ![Screenshot from 2023-01-28 07-29-02](https://user-images.githubusercontent.com/121544382/215284486-e4a7ed74-a03f-4cec-a421-66f5995d28b7.png)
+
+Reference link to Timestep/MergeRatio Preset: https://easings.net/
