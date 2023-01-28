@@ -10,7 +10,10 @@ Model A: Pastel Mix https://huggingface.co/andite/pastel-mix
 ![Screenshot from 2023-01-28 02-08-12](https://user-images.githubusercontent.com/121544382/215283961-aac4a741-05c0-489f-80fb-f90df8f47586.png)
 
 0.5 Weighted Merge With Model B (Theirs)
-![Screenshot from 2023-01-28 02-05-45](https://user-images.githubusercontent.com/121544382/215284116-1eb53920-3409-4064-965b-6175b431de8d.png)
+![Screenshot from 2023-01-28 10-25-16](https://user-images.githubusercontent.com/121544382/215284441-7820a7d3-dc06-4aac-a3c0-e7afe8695561.png)
 
 Runtime Ensembling With Model B (Ours)
-![Screenshot from 2023-01-28 02-09-49](https://user-images.githubusercontent.com/121544382/215284145-5d33327e-2cfa-48c2-b039-5b4c0bae8881.png)
+![Screenshot from 2023-01-28 07-06-51](https://user-images.githubusercontent.com/121544382/215284460-0edb5b7f-19ea-4b44-af73-57f7af652ac5.png)
+
+Model B:
+![Screenshot from 2023-01-28 07-29-02](https://user-images.githubusercontent.com/121544382/215284486-e4a7ed74-a03f-4cec-a421-66f5995d28b7.png)
