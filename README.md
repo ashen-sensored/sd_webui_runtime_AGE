@@ -1,4 +1,6 @@
 # sd_webui_runtime_ensembling
+!!! This extension is not yet compatible with sd-webui-runtime-block-merge or sd-webui-layer-controller, please disable them before enabling this extension.
+
 Stable Diffusion runtime ensembling POC extension for Webui. Intial idea inspired by https://deepimagination.cc/eDiff-I/.
 
 Please be advised that by default this extension has high VRAM requirement (up to 3X original usage during inference).
