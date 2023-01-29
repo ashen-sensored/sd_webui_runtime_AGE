@@ -249,6 +249,7 @@ class DebugUNetAdapter(object):
 class UNetStateManager(object):
     def __init__(self, org_unet: UNetModel):
         super().__init__()
+        self.device = None
         self.modelB_state_dict_by_blocks = []
         self.torch_unet = org_unet
         # self.modelA_state_dict = copy.deepcopy(org_unet.state_dict())
@@ -314,7 +315,7 @@ class UNetStateManager(object):
             print(f"Loading weights [{sd_model_hash}] from cache")
             self.modelB_state_dict = sd_models.checkpoints_loaded[model_info]
         device = devices.get_cuda_device_string() if (torch.cuda.is_available() and not shared.cmd_opts.lowvram) else "cpu"
-
+        self.device = device
         if self.modelB_state_dict:
             # orig_modelB_state_dict_keys = list(self.modelB_state_dict.keys())
             # for key in orig_modelB_state_dict_keys:
@@ -411,12 +412,13 @@ class UNetStateManager(object):
             if self.merge_target != 1.0:
                 weight_temp = weight_temp * self.merge_target
             weight = 1.0 - weight_temp
-
+        if not isinstance(weight, torch.Tensor):
+            weight = torch.tensor(weight, device=self.device)
         weight = weight.to(self.dtype)
 
         # print(weight)
-        if self.applied_weights == [weight] * 27:
-            return
+        # if self.applied_weights == [weight] * 27:
+        #     return
         for i in range(27):
 
             cur_block_state_dict = {}
