@@ -1,4 +1,5 @@
 import copy
+import gc
 import json
 
 import modules.scripts as scripts
@@ -294,6 +295,7 @@ class UNetStateManager(object):
         #     del self.modelA_state_dict[key]
         del self.modelA_state_dict
         torch.cuda.empty_cache()
+        gc.collect()
         self.modelA_state_dict = {k: v.cpu().to(self.dtype) for k, v in self.torch_unet.state_dict().items()}
         self.map_blocks(self.modelA_state_dict, self.modelA_state_dict_by_blocks)
         # if self.enabled:
@@ -332,6 +334,7 @@ class UNetStateManager(object):
             del self.modelB_state_dict_by_blocks
             del self.modelB_state_dict
             torch.cuda.empty_cache()
+            gc.collect()
         self.modelB_state_dict_by_blocks = []
         self.modelB_state_dict = self.filter_unet_state_dict(sd_models.read_state_dict(checkpoint_file, map_location=device))
         if len(self.modelA_state_dict) != len(self.modelB_state_dict):
@@ -374,6 +377,7 @@ class UNetStateManager(object):
             #     del self.modelC_state_dict[key]
             del self.modelC_state_dict_by_blocks
             del self.modelC_state_dict
+            gc.collect()
             torch.cuda.empty_cache()
         self.modelC_state_dict_by_blocks = []
         self.modelC_state_dict = self.filter_unet_state_dict(
